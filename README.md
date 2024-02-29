@@ -20,3 +20,7 @@ Event/Session booking: For therapy, yoga, meditation, or fitness classes.
 Food section: ~~Highlighting healthy dining options on campus with ratings, reviews, and menu options.~~
 Give healthy eating and diet advice
 Resources: Articles, videos, and podcasts related to mental and physical wellness
+
+## Project Initial ERD 
+
+![Project ERD](/assets/images/readme/alls_well_erd.png)
