@@ -16,6 +16,17 @@ class Article(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
 
 
+class Meta:
+        ordering = ["-created_on"]
+
+
+def __str__(self):
+    return f"The title of this post is {self.title}"
+
+
+def __str__(self):
+    return f"{self.title} | written by {self.author}"
+
 class Review(models.Model):
     article = models.ForeignKey(
         Article, on_delete=models.CASCADE, related_name="review")
@@ -26,6 +37,14 @@ class Review(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     rating = models.IntegerField()
 
+
+class Meta:
+        ordering = ["created_on"]
+
+def __str__(self):
+    return f"Comment {self.body} by {self.author}"
+
+
 class Comment(models.Model):
     article = models.ForeignKey(
         Article, on_delete=models.CASCADE, related_name="comments")
@@ -35,4 +54,9 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
-    
+
+class Meta:
+        ordering = ["created_on"]
+
+def __str__(self):
+    return f"Comment {self.body} by {self.author}"    
