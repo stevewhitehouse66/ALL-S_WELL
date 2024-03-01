@@ -28,6 +28,16 @@ Resources: Articles, videos, and podcasts related to mental and physical wellnes
 
 
 
-## Known Bugs
+## Fixed Bugs
 
 Summernote stops the display of Event/Article type in Article Admin Screen.
+
+![Old Code](/assets/images/readme/old_code.png)
+
+The code higlighted in the article model above displayed the Event/Article content type on the admin page. This was broken by Summernote.
+
+![New Code](/assets/images/readme/new_code.png)
+
+Adding the highlighted code to the Summernote admin class replaced the lost funtionality resulting in the image below.
+
+![Fixed display](/assets/images/readme/fixed_type_display.png)
