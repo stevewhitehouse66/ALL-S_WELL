@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 # Create your models here.
 
@@ -19,8 +19,10 @@ class Article(models.Model):
     class Meta:
         ordering = ["-created_on"]
     def __str__(self):
-        return f"{self.title} | written by {self.author}"
-
+        if (self.is_article == 0):
+            return f"Article: {self.title} | written by {self.author}"
+        else:
+            return f"Event: {self.title} | posted by {self.author}"
 class Review(models.Model):
     article = models.ForeignKey(
         Article, on_delete=models.CASCADE, related_name="review")
