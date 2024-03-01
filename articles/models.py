@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
@@ -14,18 +15,10 @@ class Article(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-
-
-class Meta:
+    class Meta:
         ordering = ["-created_on"]
-
-
-def __str__(self):
-    return f"The title of this post is {self.title}"
-
-
-def __str__(self):
-    return f"{self.title} | written by {self.author}"
+    def __str__(self):
+        return f"{self.title} | written by {self.author}"
 
 class Review(models.Model):
     article = models.ForeignKey(
@@ -35,14 +28,12 @@ class Review(models.Model):
     body = models.TextField()
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
-    rating = models.IntegerField()
-
-
-class Meta:
+    rating = models.IntegerField(default=1,
+        validators=[MaxValueValidator(5), MinValueValidator(1)])
+    class Meta:
         ordering = ["created_on"]
-
-def __str__(self):
-    return f"Comment {self.body} by {self.author}"
+    def __str__(self):
+        return f"Review {self.body} by {self.author}"
 
 
 class Comment(models.Model):
@@ -53,10 +44,7 @@ class Comment(models.Model):
     body = models.TextField()
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
-
-
-class Meta:
+    class Meta:
         ordering = ["created_on"]
-
-def __str__(self):
-    return f"Comment {self.body} by {self.author}"    
+    def __str__(self):
+        return f"Comment {self.body} by {self.author}"    
