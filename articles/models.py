@@ -5,8 +5,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
 
 STATUS = ((0, "Draft"), (1, "Published"))
-
-
+IS_ARTICLE = ((0, "Article"), (1, "Event"))
+RATING = ((1, "1 Star"), (2, "2 Stars"), (3, "3 Stars"), (4, "4 Stars"), (5, "5 Stars"))
 class Article(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -15,6 +15,7 @@ class Article(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    is_article = models.IntegerField(choices=IS_ARTICLE, default=0)
     class Meta:
         ordering = ["-created_on"]
     def __str__(self):
@@ -28,8 +29,7 @@ class Review(models.Model):
     body = models.TextField()
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
-    rating = models.IntegerField(default=1,
-        validators=[MaxValueValidator(5), MinValueValidator(1)])
+    rating = models.IntegerField(choices=RATING, default=1)
     class Meta:
         ordering = ["created_on"]
     def __str__(self):
