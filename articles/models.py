@@ -23,6 +23,7 @@ class Article(models.Model):
             return f"Article: {self.title} | written by {self.author}"
         else:
             return f"Event: {self.title} | posted by {self.author}"
+            
 class Review(models.Model):
     article = models.ForeignKey(
         Article, on_delete=models.CASCADE, related_name="review")

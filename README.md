@@ -24,3 +24,10 @@ Resources: Articles, videos, and podcasts related to mental and physical wellnes
 ## Project Initial ERD 
 
 ![Project ERD](/assets/images/readme/alls_well_erd.png)
+
+
+
+
+## Known Bugs
+
+Summernote stops the display of Event/Article type in Article Admin Screen.
