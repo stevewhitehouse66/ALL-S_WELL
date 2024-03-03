@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 STATUS = ((0, "Draft"), (1, "Published"))
-IS_ARTICLE = ((0, "Article"), (1, "Event"))
+IS_ARTICLE = ((1, "Article"), (0, "Event"))
 RATING = ((1, "1 Star"), (2, "2 Stars"), (3, "3 Stars"), (4, "4 Stars"), (5, "5 Stars"))
 class Article(models.Model):
     title = models.CharField(max_length=200, unique=True)

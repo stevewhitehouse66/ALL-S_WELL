@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import  path, include
 
 """
 URL configuration for allswell project.
@@ -19,6 +19,6 @@ Including another URLconf
 """
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('articles.urls')),
+    path('', include('articles.urls'), name='articles.urls'),
 ]
 
