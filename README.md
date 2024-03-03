@@ -35,6 +35,7 @@ Summernote stops the display of Event/Article type in Article Admin Screen.
 ![Old Code](/assets/images/readme/old_code.png)
 
 The code higlighted in the article model above displayed the Event/Article content type on the admin page. This was broken by Summernote.
+This functionality is being left in place in case it works somewhere other than the admin panel!
 
 ![New Code](/assets/images/readme/new_code.png)
 
