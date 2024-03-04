@@ -15,11 +15,11 @@ class Article(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    is_article = models.IntegerField(choices=IS_ARTICLE, default=0)
+    is_article = models.IntegerField(choices=IS_ARTICLE, default=1)
     class Meta:
         ordering = ["-created_on"]
     def __str__(self):
-        if (self.is_article == 0):
+        if (self.is_article == 1):
             return f"Article: {self.title} | written by {self.author}"
         else:
             return f"Event: {self.title} | posted by {self.author}"
