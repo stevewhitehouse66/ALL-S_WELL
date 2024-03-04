@@ -55,10 +55,14 @@ def article_detail(request, slug):
     """
     queryset = Article.objects.filter(status=1)
     article = get_object_or_404(queryset, slug=slug)
+    comments = article.comments.all().order_by("-created_on")
+    comment_count = article.comments.filter(approved=True).count()
     return render(
         request,
         "articles/article_detail.html",
-        {"article": article},
+        {"article": article,
+        "comments": comments,
+        "comment_count": comment_count,}
     )
 
 def event_detail(request, slug):
@@ -74,11 +78,16 @@ def event_detail(request, slug):
 
     :template:`article/article_detail.html`
     """
-    queryset = Article.objects.filter(status=1)
+    queryset = Article.objects.filter(is_article= 0)
     article = get_object_or_404(queryset, slug=slug)
-
+    reviews = article.reviews.all().order_by("-created_on")
+    review_count = article.reviews.filter(approved=True).count()
+    print (reviews)
     return render(
         request,
         "articles/event_detail.html",
-        {"article": article},
+        {"article": article,
+        "reviews": reviews,
+        "review_count": review_count,
+        },
     )

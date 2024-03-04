@@ -11,7 +11,7 @@
                 <p class="post-subtitle">{{ article.author }} | {{ article.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src="{% static 'images/event_default.png' %}" class="scale" alt="placeholder">
+                <img src="{% static 'images/default.png' %}" class="scale" alt="placeholder">
             </div>
         </div>
     </div>
@@ -29,6 +29,95 @@
             </div>
         </div>
     </div>
+<!--If this is an article-->    
+{% if article.is_article %}
+    <!-- Displaying count of comments -->
+    <div class="row">
+        <div class="col-12">
+            <strong class="text-secondary">
+                <i class="far fa-comments"></i> {{ comment_count }}
+            </strong>
+        </div>
+        <div class="col-12">
+            <hr>
+        </div>
+    </div>
+    <!-- Displaying Comments -->
+    <div class="row">
+        <div class="col-md-8 card mb-4  mt-3 ">
+            <h3>Comments:</h3>
+            <div class="card-body">
+                <!-- We want a for loop inside the empty control tags
+          to iterate through each comment in comments -->
+                {% for comment in comments %}
+                <div class="p-2 comments
+          {% if not comment.approved and comment.author == user %}
+          faded{% elif not comment.approved %} d-none{% endif %}">
+                    <p class="font-weight-bold">
+                        {{ comment.author }}
+                        <span class="font-weight-normal">
+                            {{ comment.created_on }}
+                        </span> wrote:
+                    </p>
+                    <div id="comment{{ comment.id }}">
+                        {{ comment.body | linebreaks }}
+                    </div>
+                    {% if not comment.approved and comment.author == user %}
+                    <p class="approval">
+                        This comment is awaiting approval
+                    </p>
+                    {% endif %}
+                </div>
+                <!-- Our for loop ends here -->
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% else%}
+    <!--Else this is an event--> 
+    <!-- Displaying count of comments -->
+  <div class="row">
+    <div class="col-12">
+      <strong class="text-secondary">
+        <i class="far fa-comments"></i> {{ review_count }}
+      </strong>
+    </div>
+    <div class="col-12">
+      <hr>
+    </div>
+  </div>
+  <!-- Displaying Comments -->
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 ">
+      <h3>User Reviews:</h3>
+      <div class="card-body">
+        <!-- We want a for loop inside the empty control tags
+          to iterate through each comment in comments -->
+        {% for review in reviews %}
+        <div class="p-2 comments
+          {% if not review.approved and review.author == user %}
+          faded{% elif not comment.approved %} d-none{% endif %}">
+          <p class="font-weight-bold">
+            {{ review.author }}
+            <span class="font-weight-normal">
+              {{ review.created_on }}
+            </span> wrote:
+          </p>
+          <div id="comment{{ comment.id }}">
+            {{ review.body | linebreaks }}
+          </div>
+          {% if not review.approved and review.author == user %}
+          <p class="approval">
+            This review is awaiting approval
+          </p>
+          {% endif %}
+        </div>
+        <!-- Our for loop ends here -->
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}
 </div>
 
 {% endblock content %}
