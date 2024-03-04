@@ -159,3 +159,14 @@ body {
 .approval {
     color: rgb(222, 146, 168);
 }
+
+.github-link {
+    color: #23BBBB;
+    text-decoration: none;
+}
+
+.github-link .link:hover,
+.link:active {
+    color: #445261;
+    text-decoration: underline;
+}
