@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
-from .models import Article
+from .models import Article, Event
 
 
 # Create your views here.
@@ -19,7 +19,7 @@ class ArticleList(ListView):
 
     :template:`article/articles.html`
     """
-    queryset = Article.objects.filter(status=1, is_article=1)
+    queryset = Article.objects.filter(status=1)
     template_name = "articles/articles.html"
 
 
@@ -36,8 +36,8 @@ class EventList(ListView):
 
     :template:`article/events.html`
     """
-    queryset = Article.objects.filter(status=1, is_article=0)
-    template_name = "articles/events.html"
+    queryset = Event.objects.filter(status=1)
+    template_name = "events/events.html"
 
 
 def article_detail(request, slug):
@@ -78,15 +78,15 @@ def event_detail(request, slug):
 
     :template:`article/article_detail.html`
     """
-    queryset = Article.objects.filter(is_article= 0)
-    article = get_object_or_404(queryset, slug=slug)
-    reviews = article.reviews.all().order_by("-created_on")
-    review_count = article.reviews.filter(approved=True).count()
-    print (reviews)
+    queryset = Event.objects.filter()
+    event = get_object_or_404(queryset, slug=slug)
+    reviews = event.reviews.all().order_by("-created_on")
+    review_count = event.reviews.filter(approved=True).count()
+    print("These are the review objects: ", reviews)
     return render(
         request,
-        "articles/event_detail.html",
-        {"article": article,
+        "events/event_detail.html",
+        {"event": event,
         "reviews": reviews,
         "review_count": review_count,
         },

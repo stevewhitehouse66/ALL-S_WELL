@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 STATUS = ((0, "Draft"), (1, "Published"))
-IS_ARTICLE = ((1, "Article"), (0, "Event"))
 RATING = ((1, "1 Star"), (2, "2 Stars"), (3, "3 Stars"), (4, "4 Stars"), (5, "5 Stars"))
 class Article(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -15,18 +14,30 @@ class Article(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    is_article = models.IntegerField(choices=IS_ARTICLE, default=1)
+    
     class Meta:
         ordering = ["-created_on"]
     def __str__(self):
-        if (self.is_article == 1):
-            return f"Article: {self.title} | written by {self.author}"
-        else:
-            return f"Event: {self.title} | posted by {self.author}"
+        return f"Article: {self.title} | written by {self.author}"
+       
             
+class Event(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    author = models.ForeignKey(
+    User, on_delete=models.CASCADE, related_name="event_posts")
+    content = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+    
+    class Meta:
+        ordering = ["-created_on"]
+    def __str__(self):
+        return f"Event: {self.title} | Posted by {self.author}"
+
 class Review(models.Model):
-    article = models.ForeignKey(
-        Article, on_delete=models.CASCADE, related_name="review")
+    event = models.ForeignKey(
+        Event, on_delete=models.CASCADE, related_name="review")
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="reviewer")
     body = models.TextField()
@@ -36,7 +47,7 @@ class Review(models.Model):
     class Meta:
         ordering = ["created_on"]
     def __str__(self):
-        return f"Review {self.body} by {self.author}"
+        return f"Review {self.body[:50]}... by {self.author}"
 
 
 class Comment(models.Model):
@@ -50,4 +61,4 @@ class Comment(models.Model):
     class Meta:
         ordering = ["created_on"]
     def __str__(self):
-        return f"Comment {self.body} by {self.author}"    
+        return f"Comment {self.body[:50]}... by {self.author}"    
