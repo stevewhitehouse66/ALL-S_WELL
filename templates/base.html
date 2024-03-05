@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     
 <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -27,22 +30,24 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">A<span class="red-o">L</span>LS<span
-                        class="thin"> WELL</span></span></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><img src="static/images/All's.png" alt="logo"></a>
+    <!---Nav bar drop down button for mobile-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
-                            href="#">Home</a>
+    <!---Home button next to home but might not keep<a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
+     href="#">Home</a> --->
                     </li>
-
                 </ul>
-                <span class="navbar-text text-muted">
-                    placeholder text
+                <span class="navbar-text text-muted mx-3">
+                    Sign Up / Login
+                </span>
+                <span class="navbar-text text-muted mx-3">
+                    Book a specialist
                 </span>
             </div>
         </div>
@@ -51,7 +56,7 @@
     <main class="flex-shrink-0 main-bg">
 
         {% block content %}
-        <!-- Content Goes here -->
+         Content Goes here 
         {% endblock content %}
 
     </main>
