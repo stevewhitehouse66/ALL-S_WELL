@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 STATUS = ((0, "Draft"), (1, "Published"))
-IS_ARTICLE = ((0, "Article"), (1, "Event"))
+IS_ARTICLE = ((1, "Article"), (0, "Event"))
 RATING = ((1, "1 Star"), (2, "2 Stars"), (3, "3 Stars"), (4, "4 Stars"), (5, "5 Stars"))
 class Article(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -15,11 +15,11 @@ class Article(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    is_article = models.IntegerField(choices=IS_ARTICLE, default=0)
+    is_article = models.IntegerField(choices=IS_ARTICLE, default=1)
     class Meta:
         ordering = ["-created_on"]
     def __str__(self):
-        if (self.is_article == 0):
+        if (self.is_article == 1):
             return f"Article: {self.title} | written by {self.author}"
         else:
             return f"Event: {self.title} | posted by {self.author}"
