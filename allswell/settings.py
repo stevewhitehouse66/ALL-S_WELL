@@ -32,6 +32,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = bool(os.environ["DEBUG"])
 
 
+
+
 ALLOWED_HOSTS = ['.gitpod.io','.herokuapp.com']
 
 
@@ -94,9 +96,17 @@ WSGI_APPLICATION = 'allswell.wsgi.application'
 
 
 DATABASES = {
-   'default': 
-   dj_database_url.parse(os.environ.get("DATABASE_URL"))
+   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+# Parse database configuration from $DATABASE_URL
+db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
+# Update database settings with from $DATABASE_URL
+DATABASES['default'].update(db_from_env)
+
 
 
 CSRF_TRUSTED_ORIGINS = [
