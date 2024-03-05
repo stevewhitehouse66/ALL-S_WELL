@@ -20,5 +20,7 @@ Including another URLconf
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('articles.urls'), name='articles.urls'),
+    path("accounts/", include("allauth.urls")),
 ]
+
 
