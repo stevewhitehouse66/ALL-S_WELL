@@ -7,27 +7,7 @@ from .models import Article, Event, Comment
 
 from .forms import CommentForm, ReviewForm
 # Create your views here.
-def comment_edit(request, slug, comment_id):
-    """
-    view to edit comments
-    """
-    if request.method == "POST":
 
-        queryset = Article.objects.filter(status=1)
-        article = get_object_or_404(queryset, slug=slug)
-        comment = get_object_or_404(Comment, pk=comment_id)
-        comment_form = CommentForm(data=request.POST, instance=comment)
-
-        if comment_form.is_valid() and comment.author == request.user:
-            comment = comment_form.save(commit=False)
-            comment.post = comment
-            comment.approved = False
-            comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
-        else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
-
-    return HttpResponseRedirect(reverse('article_detail', args=[slug]))
 
 class ArticleList(ListView):
     """
@@ -87,7 +67,7 @@ def article_detail(request, slug):
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user
-            comment.post = comment
+            comment.article = article
             comment.save()
             messages.add_message(
     request, messages.SUCCESS,
@@ -105,6 +85,7 @@ def article_detail(request, slug):
             "comment_count": comment_count,
             "comment_form": comment_form}
     )
+
 
 def event_detail(request, slug):
     """
@@ -129,7 +110,7 @@ def event_detail(request, slug):
     if review_form.is_valid():
         review = review_form.save(commit=False)
         review.author = request.user
-        review.post = review
+        review.post = event
         review.save()
         messages.add_message(
         request, messages.SUCCESS,
@@ -148,3 +129,53 @@ def event_detail(request, slug):
         },
     )
 
+
+def comment_edit(request, slug, comment_id):
+    print({request}, {slug}, {comment_id})
+    """
+    Display an individual comment for edit.
+
+    **Context**
+
+    ``post``
+        An instance of :model:`blog.Post`.
+    ``comment``
+        A single comment related to the post.
+    ``comment_form``
+        An instance of :form:`blog.CommentForm`
+    """
+    if request.method == "POST":
+
+        queryset = Article.objects.filter(status=1)
+        article = get_object_or_404(queryset, slug=slug)
+        comment = get_object_or_404(Comment, pk=comment_id)
+        comment_form = CommentForm(data=request.POST, instance=comment)
+
+        if comment_form.is_valid() and comment.author == request.user:
+            comment = comment_form.save(commit=False)
+            comment.article = article
+            comment.approved = False
+            comment.save()
+            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+        else:
+            messages.add_message(request, messages.ERROR,
+            'Error updating comment!')
+    print (reverse('article_detail', args=[slug])
+)
+    return HttpResponseRedirect(reverse('article_detail', args=[slug]))
+
+def comment_delete(request, slug, comment_id):
+    """
+    view to delete comment
+    """
+    queryset = Article.objects.filter(status=1)
+    article = get_object_or_404(queryset, slug=slug)
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if comment.author == request.user:
+        comment.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+
+    return HttpResponseRedirect(reverse('article_detail', args=[slug]))
