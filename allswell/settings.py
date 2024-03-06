@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'allauth',
     'allauth.account', 
     'about',
@@ -62,6 +64,8 @@ INSTALLED_APPS = [
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -114,10 +118,10 @@ DATABASES = {
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # Parse database configuration from $DATABASE_URL
-db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
+#db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 # Update database settings with from $DATABASE_URL
-DATABASES['default'].update(db_from_env)
+#DATABASES['default'].update(db_from_env)
 
 
 CSRF_TRUSTED_ORIGINS = [
