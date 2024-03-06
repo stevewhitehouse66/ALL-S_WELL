@@ -1,7 +1,8 @@
-from django.contrib import admin
-from django.urls import path  # Make sure to import the 'path' function
+from . import views
+from django.urls import path
+
+
 
 urlpatterns = [
-    # Your other URL patterns go here
-    path('admin/', admin.site.urls),
+    path('', views.about_me, name='about'),
 ]
