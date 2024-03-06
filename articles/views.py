@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 from django.contrib import messages
 from .models import Article, Event
+#from about.views import view2_function
 from .forms import CommentForm, ReviewForm
 
 
