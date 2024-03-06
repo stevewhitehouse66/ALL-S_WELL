@@ -9,20 +9,20 @@
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
-                {% for article in object_list %}
+                {% for event in object_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
                                 <div class="image-flash">
-                                    <p class="author">Author: {{ article.author }}</p>
+                                    <p class="author">Author: {{ event.author }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'article_detail' article.slug %}" class="post-link">
-                                <h2 class="card-title">{{ article.title }}</h2>
+                            <a href="{% url 'event_detail' event.slug %}" class="post-link">
+                                <h2 class="card-title">{{ event.title }}</h2>
                             </a>
                                 <hr />
-                            <p class="card-text text-muted h6">{{ article.created_on}}
+                            <p class="card-text text-muted h6">{{ event.created_on}}
                             </p>
                         </div>
                     </div>
