@@ -8,7 +8,7 @@ from .models import Article, Event
 
 class ArticleList(ListView):
     """
-    Display a list of :model:`article.Article` filtered by is_article =1.
+    Display a list of :model:`article.Article`
 
     **Context**
 
@@ -25,19 +25,19 @@ class ArticleList(ListView):
 
 class EventList(ListView):
     """
-    Display a list of :model:`article.Article` filtered by is_article =0.
+    Display a list of :model:`event.Events`
 
     **Context**
 
-    ``article``
-        An instance of :model:`article.Article`.
+    ``event``
+        An instance of :model:`event.Event`.
 
     **Template:**
 
-    :template:`article/events.html`
+    :template:`events.html`
     """
     queryset = Event.objects.filter(status=1)
-    template_name = "events/events.html"
+    template_name = "articles/events.html"
 
 
 def article_detail(request, slug):
@@ -51,7 +51,7 @@ def article_detail(request, slug):
 
     **Template:**
 
-    :template:`article/article_detail.html`
+    :template:`article_detail.html`
     """
     queryset = Article.objects.filter(status=1)
     article = get_object_or_404(queryset, slug=slug)
@@ -67,25 +67,28 @@ def article_detail(request, slug):
 
 def event_detail(request, slug):
     """
-    Display an individual :model:`article.Post`.
+    Display an individual :model:`event.Post`.
 
     **Context**
 
-    ``article``
-        An instance of :model:`article.Post`.
+    ``event``
+        An instance of :model:`event.Post`.
 
     **Template:**
 
-    :template:`article/article_detail.html`
+    :template:`event_detail.html`
     """
     queryset = Event.objects.filter()
     event = get_object_or_404(queryset, slug=slug)
-    reviews = event.reviews.all().order_by("-created_on")
-    review_count = event.reviews.filter(approved=True).count()
+    print("Retrieved event:", event)
+    if event:
+        reviews = event.review.all().order_by("-created_on")
+    print("Retrieved reviews:", reviews)
+    review_count = event.review.filter(approved=True).count()
     print("These are the review objects: ", reviews)
     return render(
         request,
-        "events/event_detail.html",
+        "articles/event_detail.html",
         {"event": event,
         "reviews": reviews,
         "review_count": review_count,

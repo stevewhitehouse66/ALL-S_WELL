@@ -3,13 +3,17 @@
 body {
     background-color: #F9FAFC;
 }
-/*nav logo*/
-/*.brand {
+nav logo
+.brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: black;
-}*/
+}
+/*text next to logo in nav*/
+.nav-item {
+    font-size: 20px;
+}
 
 
 .thin {
@@ -19,14 +23,35 @@ body {
 .light-bg {
     background-color: #fff;
 }
-
+/*footer color*/
 .dark-bg {
     background-color: #445261;
 }
-
+/*background color for main*/
 .main-bg {
     background-color: #F9FAFC;
 }
+
+
+
+/* nav link box hover effect*/
+.nav-link {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    margin-left: 15px;
+    margin-right: 18px;
+    padding:0px 0px 0px 5px;
+    border: 3px solid transparent; 
+    transition: border-color 0.2s ease; 
+}
+
+.nav-link:hover {
+    border-color: black; /* Change border color on hover */
+}
+
+
+
 
 .card {
     border: none;
