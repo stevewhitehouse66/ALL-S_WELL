@@ -29,12 +29,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ["DEBUG", False])
+DEBUG = bool(os.environ.get("DEBUG", False))
 
 
 
 
-ALLOWED_HOSTS = ['.gitpod.io','.herokuapp.com']
+
+ALLOWED_HOSTS = ['localhost', '.gitpod.io', '.herokuapp.com']
 
 
 # Application definition
@@ -48,11 +49,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'allauth',
-    'allauth.account',
+    'allauth.account', 
+    'about',
     'allauth.socialaccount',
     'cloudinary_storage',
     'cloudinary',
     'articles',
+    'django_summernote',
 
 ]
 
