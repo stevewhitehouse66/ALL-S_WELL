@@ -114,10 +114,10 @@ DATABASES = {
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # Parse database configuration from $DATABASE_URL
-db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
+#db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 # Update database settings with from $DATABASE_URL
-DATABASES['default'].update(db_from_env)
+#DATABASES['default'].update(db_from_env)
 
 
 CSRF_TRUSTED_ORIGINS = [
