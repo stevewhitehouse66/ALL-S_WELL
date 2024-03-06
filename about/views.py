@@ -11,3 +11,4 @@ class AboutList(ListView):
     model = About  # Specify the model to work with
     template_name = "about/about.html"  # Specify the template to render
     context_object_name = "about_pages"  # Specify the context object name to use in the template
+    #html_content = model.mydiary

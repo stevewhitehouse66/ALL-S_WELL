@@ -78,11 +78,11 @@ def event_detail(request, slug):
 
     :template:`event_detail.html`
     """
+    
     queryset = Event.objects.filter()
     event = get_object_or_404(queryset, slug=slug)
     print("Retrieved event:", event)
-    if event:
-        reviews = event.review.all().order_by("-created_on")
+    reviews = event.review.all().order_by("-created_on")
     print("Retrieved reviews:", reviews)
     review_count = event.review.filter(approved=True).count()
     print("These are the review objects: ", reviews)
@@ -94,3 +94,4 @@ def event_detail(request, slug):
         "review_count": review_count,
         },
     )
+

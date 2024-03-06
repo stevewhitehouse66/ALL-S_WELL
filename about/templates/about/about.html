@@ -11,12 +11,16 @@
       <h2>{{ about_page.title }}</h2>
       {{ about_page.content | safe }}
     </div>
+    {{ about_page.mydiary | safe }}
   </div>
+  
   <div class="row">
     <div class="col text-right">
       <p class="text-end"><em>Updated on: {{ about_page.updated_on }}</em></p>
     </div>
   </div>
+  <hr>
   {% endfor %}
+  
 </div>
 {% endblock content %}
