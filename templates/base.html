@@ -1,4 +1,5 @@
 {% url 'home' as home_url %}
+{% url 'events' as event_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -32,28 +33,30 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
-      <a class="navbar-brand nav-item" href="{% url 'home' %}"><img src="staticfiles/images/All’s.png"></a>
+      
+      <a class=" active  brand" href="{% url 'home' %}"><p>ALLs WELL</p></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+        
           <li class="nav-item">
             <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
               href="{% url 'home' %}">Home</a>
           </li>
 
           </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.path == about_url %}active{% endif %}"
-              {# Add this line for the About page #} aria-current="page" href="{% url 'about' %}">About</a>
-          </li>
+          
           
           <li class="nav-item">
-            <a class="nav-link {% if request.path == home_url %}{% endif %}" aria-current="page"
+            <a class="nav-link {% if request.path == event_url %}active{% endif %}" aria-current="page"
               href="{% url 'events' %}">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == about_url %}active{% endif %}"
+              {# Add this line for the About page #} aria-current="page" href="{% url 'about' %}">Book</a>
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
@@ -97,7 +100,7 @@
       </div>
     <div class="login-user-text text-end">
                 {% if user.is_authenticated %}
-                <p class="text-end m-3">You are logged in as {{ user }}</p>
+                <p class="text-end m-3">User: {{ user }}</p>
                 {% else %}
                 <p class="text-end m-3">HEY! Log in to book in.</p>
                 {% endif %}

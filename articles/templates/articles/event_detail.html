@@ -27,9 +27,9 @@
 <div class="container">
   <div class="row">
       <div class="col card mb-4  mt-3 left  top">
-          <div class="card-body">
+          <div class="card-body-wide">
                 <!-- Use the | safe filter inside the template tags -->
-                <p class="card-text">
+                <p class="card-text-wide">
                     {{ event.content | safe }}
                 </p>
             </div>
@@ -39,7 +39,7 @@
   <div class="row">
     <div class="col-12">
       <strong class="text-secondary">
-        <i class="far fa-comments"></i> {{ review_count }}
+        <i class="fa fa-comments"></i> {{ review_count }}
       </strong>
     </div>
     <div class="col-12">
@@ -47,7 +47,7 @@
     </div>
   </div>
   <!-- Displaying Comments -->
-  <div class="row">
+  <div class="row ">
     <div class="col-md-8 card mb-4  mt-3 ">
       <h3>User Reviews:</h3>
       <div class="card-body">

@@ -1,3 +1,12 @@
+.brand {
+  margin-top: 15px;
+  font-family: Lato, sans-serif;
+  font-size: 1.6rem;
+  font-weight: bolder;
+  color: #4A4A4F;
+  text-decoration: none;
+}
+
 body {
     background: linear-gradient(45deg, #f2f6c3, #96ead7, #68c4af);
 }
@@ -132,9 +141,28 @@ body {
     background: white;
     border: solid black 2px;
     border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
-    color: white;
+    color: rgb(8, 8, 8);
     box-shadow: 15px 15px rgba(0,0,0,.15);
     transition: all .4s ease;
+}
+
+.card-body-wide { 
+  margin-left: 15px;
+  margin-right: 25px;
+  font-size: 1.2em;
+  width: 100%;
+  max-width: 100%;
+  height: 460px;
+  background: white;
+  border: solid black 2px;
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+  color: rgb(8, 8, 8);
+  box-shadow: 15px 15px rgba(0,0,0,.15);
+  transition: all .4s ease;
+}
+.card-text-wide {
+  padding-bottom: 15px;
+  padding-left: 8px;
 }
 
 .card-body:hover {
@@ -144,6 +172,7 @@ body {
 
 .author {
     font-family: 'Merriweather', sans-serif;
+    font-size: 1vw;
     font-weight: bold;
     color: white;
     margin: 4px;
@@ -170,7 +199,9 @@ body {
 
 
 
-/*Login / register forms*/
+/*Login / register forms / commentForm */
+
+
 
  .signup-form {
     max-width: 400px;
