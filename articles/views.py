@@ -4,6 +4,8 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Article, Event, Comment
 from .forms import CommentForm, ReviewForm
+
+
 # Create your views here.
 def comment_edit(request, slug, comment_id):
     """
