@@ -47,17 +47,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'django.contrib.sites',
     'crispy_forms',
-    'crispy_bootstrap5',
     'allauth',
     'allauth.account', 
-    'about',
     'allauth.socialaccount',
-    'cloudinary_storage',
+    'crispy_bootstrap5',
+    'django_summernote',
     'cloudinary',
     'articles',
-    'django_summernote',
+    'about',
+    
 
 ]
 
@@ -159,6 +160,11 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+MESSAGE_TAGS ={
+    messages.SUCCESS: 'alert-success',
+    messages.ERROR: 'alert-danger',
+}
 
 
 # Static files (CSS, JavaScript, Images)
