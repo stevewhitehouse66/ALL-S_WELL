@@ -1,12 +1,14 @@
 {% extends "base.html" %} {% block content %} {% load crispy_forms_tags %}
 <!-- index.html content starts here -->
-<div class="">
-  <div class="">
+<div class="container-fluid">
+  <div class="row">
     <!-- Blog Entries Column -->
-    <div class="">
-      <div class="">
+    <div class="col-12 mt-3 left">
+      <div class="row">
+
         {% for article in ArticleList %}
-        <div class="">
+        <div class="col-md-4">
+          <div class="card mb-4">
           <div class="card-container">
             <div class="card-body">
               <div class="image-container">
@@ -27,6 +29,7 @@
       </div>
       <div class="row">{% endif %} {% endfor %}</div>
     </div>
+  </div>
   </div>
   {% if is_paginated %}
   <nav aria-label="Page navigation">
