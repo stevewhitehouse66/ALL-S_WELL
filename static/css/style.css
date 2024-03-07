@@ -159,6 +159,192 @@ body {
 }
 /*Event section*/
 
+/*Login / register forms*/
+
+ .signup-form {
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: bold;
+  }
+
+  .signin-text {
+    display: flex;
+    justify-content: space-around;
+    font-weight: bolder;
+    color: black;
+    font-family: 'Raleway', sans serif;
+    display: inline-block;
+    padding: 3px 3px;
+    border: 3px solid black;
+    border-radius: 0; 
+    text-decoration: none;
+  }
+/*Spacers between buttons and text on forms*/
+  .form-spacer {
+    margin-right: 10px;
+  }
+
+  .form-spacer-bigger {
+    margin-right: 95px;
+  }
+
+  .signin-text:hover {
+    color: #68c4af;
+  }
+
+  .signup-form {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .signup-form input[type="text"],
+  .signup-form input[type="email"],
+  .signup-form input[type="password"],
+  .signup-form input[type=""],
+  .signup-form textarea {
+    font-weight: bolder;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .signup-form textarea {
+    resize: vertical;
+  }
+
+  /*Sign up form hover effect*/
+
+  .signup-form button[type="submit"] {
+    font-family:'Raleway', sans serif;
+    width: 100%;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border: solid 4px black;
+    cursor: pointer;
+    font-size: 16px;
+    animation: bounce 0.5s infinite alternate;
+    
+  }
+  
+  .signup-form button[type="submit"]:before,
+  .signup-form button[type="submit"]:after{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    left: 0;
+    z-index: -1;
+    transition: transform 0.2s;
+  }
+  
+  .signup-form button[type="submit"]:before{
+    opacity: .5;
+  }
+  
+  .signup-form button[type="submit"]:after{
+    transition-delay: .2s;
+  }
+  
+  .signup-form button[type="submit"]:hover{
+    color: #68c4af;
+  }
+
+  .press-button:active {
+    transform: translateY(2px); 
+  }
+
+/*Login form some classes are used from sign up form*/
+
+  .container.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: bold;
+  }
+  
+  /* Login form heading */ 
+  .container.login-form h1, .sign-up-heading {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+ 
+/*main text boxes user and pass*/
+
+  .login-form input[type="text"],
+  .login-form input[type="password"],
+  .signup-form textarea {
+    font-weight: bolder;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .forgot-pass-text {
+    color: black;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 600;
+    font-weight: bolder;
+  }
+
+  .forgot-pass-text:hover {
+    color:#68c4af;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 600;
+    font-weight: bolder;
+  }
+  
+  .sign-in-button {
+    font-family:'Raleway', sans serif;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border: solid 4px black;
+    cursor: pointer;
+    font-size: 16px;
+    animation: bounce 0.5s infinite alternate;
+  }
+
+  .sign-in-button {
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    left: 0;
+    transition: transform 0.2s;
+  }
+  
+  .sign-in-button:before{
+    opacity: .5;
+  }
+  
+  .sign-in-button:after{
+    transition-delay: .2s;
+  }
+  
+  .sign-in-button:hover{
+    color: #68c4af;
+  }
+
+  .press-button:active {
+    transform: translateY(2px); 
+  }
+  
+
 
 .scale {
     width: 100%;
@@ -332,6 +518,7 @@ body {
         font-size: 24px; 
         padding: 20px 20x 20px 20px;
     }
+
 }
 
 @media screen and (max-width: 576px) {
@@ -377,3 +564,9 @@ body {
         transition: all .4s ease;
     }    
 }
+
+@media only screen and (max-width: 600px) {
+    .container.signup-form {
+      padding: 10px;
+    }
+  }
