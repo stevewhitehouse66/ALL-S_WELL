@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views.generic import ListView
 from django.contrib import messages
+
 from django.http import HttpResponseRedirect
 from .models import Article, Event, Comment
+
 from .forms import CommentForm, ReviewForm
 
 
