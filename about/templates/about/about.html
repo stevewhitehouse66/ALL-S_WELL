@@ -5,8 +5,14 @@
   {% for about_page in about_pages%}
   <div class="row box-around-profile">
     <div class="col-4 text-center">
-      <img src="{% static 'images/nobody.jpg' %}" width="75%" />
-      <!--<br>--->
+      {% if "placeholder" in about_page.profile_image.url %}
+      <img src="{% static 'images/nobody.jpg' %}" width="75%"
+        alt="placeholder image" >
+      {% else %}
+      <img src="{{ about_page.profile_image.url }}" width="75%"
+        alt="{{ about.title }}">
+      {% endif %}
+      <br>
       {{ about_page.mydiary | safe }}
     </div>
     <div class="col-8 name-about-page">

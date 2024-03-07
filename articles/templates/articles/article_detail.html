@@ -13,23 +13,29 @@
                 <p class="post-subtitle">{{ article.author }} | {{ article.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src="{% static 'images/default.png' %}" class="scale" alt="placeholder">
+              {% if "placeholder" in post.featured_image.url %}
+              <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                alt="placeholder image">
+              {% else %}
+              <img class="card-img-top" src=" {{ article.featured_image.url }}"
+                alt="{{ event.title }}">
+              {% endif %}
             </div>
         </div>
     </div>
 </div>
-
-
-                <!-- Use the | safe filter inside the template tags -->
+<div class="container">
+  <div class="row">
+      <div class="col card mb-4  mt-3 left  top">
+          <div class="card-body">
+<!-- Use the | safe filter inside the template tags -->
                 <p class="card-text">
                     {{ article.content | safe }}
                 </p>
             </div>
         </div>
     </div>
-<!--If this is an article is.article =0 its an event, =1 its an article-->    
-
-    <!-- Displaying count of comments -->
+<!-- Displaying count of comments -->
     <div class="row">
         <div class="col-12">
             <strong class="text-secondary">
@@ -40,7 +46,7 @@
             <hr>
         </div>
     </div>
-    <!-- Displaying Comments -->
+<!-- Displaying Comments -->
     <div class="row">
         <div class="col-md-8 card mb-4  mt-3 ">
             <h3>Comments:</h3>
@@ -68,7 +74,7 @@
                        {% if user.is_authenticated and comment.author == user %}
                        <button class="btn btn-delete"comment_id="{{ comment.id }}">Delete</button>
                         <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
-  {% endif %}
+                      {% endif %}
                 </div>
                 <!-- Our for loop ends here -->
                 {% endfor %}

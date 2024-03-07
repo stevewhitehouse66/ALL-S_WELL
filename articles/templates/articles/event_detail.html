@@ -13,13 +13,21 @@
                 <p class="post-subtitle">{{ event.author }} | {{ event.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src="{% static 'images/event_default.png' %}" class="scale" alt="placeholder">
+              {% if "placeholder" in post.featured_image.url %}
+              <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                alt="placeholder image">
+              {% else %}
+              <img class="card-img-top" src=" {{ event.featured_image.url }}"
+                alt="{{ event.title }}">
+              {% endif %}
             </div>
         </div>
     </div>
 </div>
-
-
+<div class="container">
+  <div class="row">
+      <div class="col card mb-4  mt-3 left  top">
+          <div class="card-body">
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text">
                     {{ event.content | safe }}
@@ -55,13 +63,17 @@
               {{ review.created_on }}
             </span> wrote:
           </p>
-          <div id="comment{{ comment.id }}">
+          <div id="review{{ review.id }}">
             {{ review.body | linebreaks }}
           </div>
           {% if not review.approved and review.author == user %}
           <p class="approval">
             This review is awaiting approval
           </p>
+          {% endif %}
+          {% if user.is_authenticated and review.author == user %}
+                      <button class="btn btn-delete"review_id="{{ review.id }}">Delete</button>
+                      <button class="btn btn-edit" review_id="{{ review.id }}">Edit</button>
           {% endif %}
         </div>
         <!-- Our for loop ends here -->
@@ -88,5 +100,31 @@
     </div>
   </div>
 </div>
-
+<!-- Delete confirmation modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1"
+  aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"
+          id="deleteModalLabel">Delete review?</h5>
+        <button type="button" class="btn-close"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete your review?
+        This action cannot be undone.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+          data-bs-dismiss="modal">Close</button>
+        <a id="deleteConfirm" href="#" class="btn
+          btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock content %}
+{% block extras %}
+<script src="{% static 'js/reviews.js' %}"></script>
+{% endblock %}
