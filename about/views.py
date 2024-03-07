@@ -1,15 +1,14 @@
 from django.shortcuts import render
+from django.views.generic import ListView
 from .models import About
 
 
-def about_me(request):
+class AboutList(ListView):
     """
-    Renders the About page
+    Renders a list of About pages
     """
-    about = About.objects.all().order_by('-updated_on').first()
-
-    return render(
-        request,
-        "about/about.html",
-        {"about": about},
-    )
+    queryset = About.objects.all()
+    model = About  # Specify the model to work with
+    template_name = "about/about.html"  # Specify the template to render
+    context_object_name = "about_pages"  # Specify the context object name to use in the template
+    #html_content = model.mydiary

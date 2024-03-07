@@ -2,19 +2,25 @@
 {% block content %}
 {% load static %}
 <div class="container mt-5">
+  {% for about_page in about_pages%}
   <div class="row">
     <div class="col-4 text-center">
       <img src="{% static 'images/nobody.jpg' %}" width="75%" />
     </div>
     <div class="col-8">
-      <h2>{{ about.title }}</h2>
-      {{ about.content | safe }}
+      <h2>{{ about_page.title }}</h2>
+      {{ about_page.content | safe }}
     </div>
+    {{ about_page.mydiary | safe }}
   </div>
-  <div class="row">
+  
+  <div class="row about-updated">
     <div class="col text-right">
-      <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
+      <p class="text-end"><em>Updated on: {{ about_page.updated_on }}</em></p>
     </div>
   </div>
+  <hr>
+  {% endfor %}
+  
 </div>
 {% endblock content %}

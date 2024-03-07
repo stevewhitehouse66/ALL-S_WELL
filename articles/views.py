@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
+from django.contrib import messages
 from .models import Article, Event
+from .forms import CommentForm, ReviewForm
+
 
 
 # Create your views here.
@@ -57,12 +60,30 @@ def article_detail(request, slug):
     article = get_object_or_404(queryset, slug=slug)
     comments = article.comments.all().order_by("-created_on")
     comment_count = article.comments.filter(approved=True).count()
+
+
+    if request.method == "POST":
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.post = comment
+            comment.save()
+            messages.add_message(
+    request, messages.SUCCESS,
+            'Comment submitted and awaiting approval'
+    )
+
+    
+    comment_form = CommentForm()
+
     return render(
-        request,
-        "articles/article_detail.html",
-        {"article": article,
-        "comments": comments,
-        "comment_count": comment_count,}
+            request,
+            "articles/article_detail.html",
+            {"article": article,
+            "comments": comments,
+            "comment_count": comment_count,
+            "comment_form": comment_form}
     )
 
 def event_detail(request, slug):
@@ -78,19 +99,32 @@ def event_detail(request, slug):
 
     :template:`event_detail.html`
     """
+    
     queryset = Event.objects.filter()
     event = get_object_or_404(queryset, slug=slug)
-    print("Retrieved event:", event)
-    if event:
-        reviews = event.review.all().order_by("-created_on")
-    print("Retrieved reviews:", reviews)
+    reviews = event.review.all().order_by("-created_on")
     review_count = event.review.filter(approved=True).count()
-    print("These are the review objects: ", reviews)
+
+    review_form = ReviewForm(data=request.POST)
+    if review_form.is_valid():
+        review = review_form.save(commit=False)
+        review.author = request.user
+        review.post = review
+        review.save()
+        messages.add_message(
+        request, messages.SUCCESS,
+        'Review submitted and awaiting approval'
+    )
+
+    review_form = ReviewForm()
+
     return render(
         request,
         "articles/event_detail.html",
         {"event": event,
         "reviews": reviews,
         "review_count": review_count,
+        "review_form": review_form
         },
     )
+
