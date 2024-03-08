@@ -2,6 +2,31 @@
 ## By The CODING QUAD
 ### Abdirizak Omar, Manjula Lal, Taylor Carr, Steve Whitehouse
 
+## Contents
+
+- Brief
+- External user’s goal:
+- Students
+- Therapists/Instructors
+- Food Vendors
+- Site owner's goal
+- Potential features to include
+- Project Initial ERD and data base design
+- Develop strategy and Wireframe
+- Miro Board
+- Balsamiq
+- Lucid Chart
+- Github project
+- Features
+- Styling frontend development
+- Fixed Bugs
+- Unfixed Bugs
+- Testing
+- Future features and modifications
+- Tools and Technology used 
+- Credits
+
+
 ## Brief -- Project  3: Learner Wellness
 
 Welcome to the All’s WELL platform. Our platform aims to promote mental health and physical well by providing easy access to resources, services, and healthy dining options on campus.
@@ -124,7 +149,7 @@ In the forms for Comments and Reviews, The text  "Body** appears, we have been u
 
 - All top level links works as expected.
 
-- User Account Creation works as expected.
+- User login and logout works as expected.
 
 - User comments and reviews have full CRUD functionality.
 
@@ -134,7 +159,7 @@ In the forms for Comments and Reviews, The text  "Body** appears, we have been u
 
 Give users the option to make payments using stripe so they can pay for deposit online before appointment date.
 
-A shop feature to buy health equipment and books
+A shop feature to buy health equipment and books.
 
 ## Tools and Technology used
 
@@ -146,9 +171,9 @@ JavaScript used for user interaction.
 
 Python used for back-end programming.
 
-Git for version control
+Git for version control.
 
-Bootstrap used alongside CSS to help build faster and help enhance user experience and responsiveness
+Bootstrap used alongside CSS to help build faster and help enhance user experience and responsiveness.
 
 Django used for Python framework.
 
@@ -158,7 +183,7 @@ Heroku was used to deploy the back-end.
 
 Cloudinary used for online static file storage.
 
-## Credits (edited)
+## Credits
 
 We would like to give a huge thanks to our facilitator David Calikes and our coding coaches Kevin and Martin at the Code institute for there exceptional guidance and support.
 
