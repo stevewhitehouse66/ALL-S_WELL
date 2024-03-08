@@ -6,6 +6,8 @@ from django.http import HttpResponseRedirect
 from .models import Article, Event, Comment, Review
 
 from .forms import CommentForm, ReviewForm
+
+
 # Create your views here.
 
 
