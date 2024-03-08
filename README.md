@@ -149,6 +149,8 @@ In the forms for Comments and Reviews, The text  "Body** appears, we have been u
 
 - All top level links works as expected.
 
+- User Account Creation works as expected.
+ 
 - User login and logout works as expected.
 
 - User comments and reviews have full CRUD functionality.
