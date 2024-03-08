@@ -69,23 +69,23 @@ For our User Stories, we had decided to use Github project whereby 12 out of the
 
 ## Features
 
-Articles, Account creation and Reader Comments
+- Articles, Account creation and Reader Comments
 
 ![articles](/assets/images/readme/articles.png)
 
-Events 
+- Events 
 
 ![events page](/assets/images/readme/eventspage.png)
 
-User Reviews
+- User Reviews
 
 ![user reviews](/assets/images/readme/userreviews.png)
 
-Provider Profiles and Booking Link
+- Provider Profiles and Booking Link
 
 ![profiles and booking](/assets/images/readme/bookingspage.png)
 
-Provider session booking via Calendly
+- Provider session booking via Calendly
 
 ![calendly](/assets/images/readme/calandely.png)
 
@@ -122,10 +122,13 @@ In the forms for Comments and Reviews, The text  "Body** appears, we have been u
 
 ## Testing
 
-All top level links works as expected.
-User Account Creation works as expected.
-User comments and reviews have full CRUD functionality.
-External links to calendar provider (Calendly) work as expected.
+- All top level links works as expected.
+
+- User Account Creation works as expected.
+
+- User comments and reviews have full CRUD functionality.
+
+- External links to calendar provider (Calendly) work as expected.
 
 ## Future features and modifications
 
