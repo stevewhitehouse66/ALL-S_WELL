@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
+
 
 
 # Create your models here.
@@ -7,13 +9,18 @@ from django.contrib.auth.models import User
 STATUS = ((0, "Draft"), (1, "Published"))
 RATING = ((1, "1 Star"), (2, "2 Stars"), (3, "3 Stars"), (4, "4 Stars"), (5, "5 Stars"))
 class Article(models.Model):
+    """
+    Stores a single blog post entry related to  :model:`auth.User`
+    """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
     User, on_delete=models.CASCADE, related_name="article_posts")
+    featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
+
     
     class Meta:
         ordering = ["-created_on"]
@@ -22,10 +29,14 @@ class Article(models.Model):
        
             
 class Event(models.Model):
+    """
+    Stores a single event post entry related to  :model:`auth.User`
+    """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
     User, on_delete=models.CASCADE, related_name="event_posts")
+    featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
@@ -36,6 +47,10 @@ class Event(models.Model):
         return f"Event: {self.title} | Posted by {self.author}"
 
 class Review(models.Model):
+    """
+    Stores a single comment entry related to :model:`auth.User`
+    and :model:`review.Post`.
+    """
     event = models.ForeignKey(
         Event, on_delete=models.CASCADE, related_name="review")
     author = models.ForeignKey(
@@ -51,6 +66,10 @@ class Review(models.Model):
 
 
 class Comment(models.Model):
+    """
+    Stores a single comment entry related to :model:`auth.User`
+    and :model:`article.Post`.
+    """
     article = models.ForeignKey(
         Article, on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(

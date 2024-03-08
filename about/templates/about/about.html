@@ -3,25 +3,35 @@
 {% load static %}
 <div class="container mt-5">
   {% for about_page in about_pages%}
-  <div class="row">
+  <div class="row box-around-profile">
     <div class="col-4 text-center">
-      <img src="{% static 'images/nobody.jpg' %}" width="75%" />
+      {% if "placeholder" in about_page.profile_image.url %}
+      <img src="{% static 'images/nobody.jpg' %}" width="75%"
+        alt="placeholder image" >
+      {% else %}
+      <img src="{{ about_page.profile_image.url }}" width="75%"
+        alt="{{ about.title }}">
+      {% endif %}
       <br>
       {{ about_page.mydiary | safe }}
     </div>
-    <div class="col-8">
+    <div class="col-8 name-about-page">
       <h2>{{ about_page.title }}</h2>
       {{ about_page.content | safe }}
     </div>
-    
-  </div>
-  
-  <div class="row">
-    <div class="col text-right">
-      <p class="text-end"><em>Updated on: {{ about_page.updated_on }}</em></p>
+    <div class="row about-updated">
+      <div class="col text-right">
+        <p class="text-end about-created-text"><em>Updated on: {{ about_page.updated_on }}</em></p>
+      </div>
     </div>
   </div>
-  <hr>
+  
+  <!---<div class="row about-updated">
+    <div class="col text-right">
+      <p class="text-end about-created-text"><em>Updated on: {{ about_page.updated_on }}</em></p>
+    </div>
+  </div>-->
+  <!---<hr>-->
   {% endfor %}
   
 </div>

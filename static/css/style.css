@@ -1,61 +1,404 @@
-body {
-    background-color: #F9FAFC;
-}
-
 .brand {
-    font-family: Lato, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #4A4A4F;
+  margin-top: 15px;
+  font-family: Lato, sans-serif;
+  font-size: 1.6rem;
+  font-weight: bolder;
+  color: #4A4A4F;
+  text-decoration: none;
 }
 
-.red-o {
-    color: #E84610;
-}
-
-.thin {
-    font-weight: 300;
+body {
+    background: linear-gradient(45deg, #f2f6c3, #96ead7, #68c4af);
 }
 
 .light-bg {
     background-color: #fff;
 }
 
-.dark-bg {
-    background-color: #445261;
-}
+
+/*background color for main*/
 
 .main-bg {
-    background-color: #F9FAFC;
+  background: radial-gradient(circle, #f7e7b4  0%,#f2f6c3 100%);
+
 }
+
+
+/* nav link box hover effect and text styling*/
+
+.nav-link {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    color: black;
+    margin-left: 15px;
+    margin-right: 18px;
+    padding:0px 0px 0px 5px;
+    border: 3px solid transparent; 
+    transition: border-color 0.2s ease; 
+}
+
+.nav-link:hover {
+    border-color: black;
+}
+
+/* base html Hero image*/
+
+.hero-box-outline-white {
+    background-color: white;
+    position: relative;
+    margin: 0.1px;
+    border: 5px solid #b8dbd3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner-box {
+    position: relative;
+    margin: 10px;
+    border: 5px solid #f7e7b4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner-inner-box {
+    position: relative;
+    margin: 15px;
+    border: 5px solid #68c4af;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Base html Main text in hero "image" space*/
+.hero-text {
+    margin: 20px;
+    font-family: 'Raleway', sans serif;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    font-size: 20px; 
+}
+
+#hero-text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    font-size: 60px;
+    letter-spacing: 0.02em;
+    text-shadow: -15px 5px 20px #ced0d3;
+    padding: 20px 20px 10px 20px;
+    text-shadow: 5px 5px 0px #b8dbd3, 
+    5px 5px 0px #f7e7f7, 
+    10px 10px 0px  #68c4af, 
+    15px 15px 0px #96ead7, 
+    20px 20px 0px #f2f6c3 
+}
+
+/* base html user login status text under hero "image"*/
+
+.login-user-text {
+    font-family: 'Raleway', sans serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-decoration: underline;
+    padding-right: 20px;
+}
+
+
+/**Articles**/
 
 .card {
     border: none;
     background-color: transparent;
 }
 
+/*Article main title*/
+
+.card-container {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.card-title {
+    color:black;
+    font-family: 'Merriweather', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    padding-top: 5px;
+}
+
+.card-body { 
+    margin-left: 15px;
+    margin-right: 25px;
+    width: 100%;
+    max-width: 390px;
+    height: 460px;
+    background: white;
+    border: solid black 2px;
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    color: rgb(8, 8, 8);
+    box-shadow: 15px 15px rgba(0,0,0,.15);
+    transition: all .4s ease;
+}
+
+.card-body-wide { 
+  margin-left: 15px;
+  margin-right: 25px;
+  font-size: 1.2em;
+  width: 100%;
+  max-width: 100%;
+  height: 460px;
+  background: white;
+  border: solid black 2px;
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+  color: rgb(8, 8, 8);
+  box-shadow: 15px 15px rgba(0,0,0,.15);
+  transition: all .4s ease;
+}
+.card-text-wide {
+  padding-bottom: 15px;
+  padding-left: 8px;
+}
+
+.card-body:hover {
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+    box-shadow: 10px 10px rgba(0,0,0,.25);
+}
+
+.author {
+    font-family: 'Merriweather', sans-serif;
+    font-size: 1vw;
+    font-weight: bold;
+    color: white;
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+.card-text {
+    padding-bottom: 15px;
+}
+
 .image-container {
-    position: relative;
+  width: auto; 
+    padding: 10px;
 }
 
 .image-flash {
-    position: absolute;
+    position: relative;
     bottom: 5%;
-    min-width: 30%;
+    min-width: 60%;
     left: -2px;
     background-color: #188181;
 }
+/*About section*/
+
+
+
+/*Login / register forms / commentForm */
+
+
+
+ .signup-form {
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: bold;
+  }
+
+  .signin-text {
+    display: flex;
+    justify-content: space-around;
+    font-weight: bolder;
+    color: black;
+    font-family: 'Raleway', sans serif;
+    display: inline-block;
+    padding: 3px 3px;
+    border: 3px solid black;
+    border-radius: 0; 
+    text-decoration: none;
+  }
+
+/*Spacers between buttons and text on forms and git links in footer */
+
+  .form-spacer {
+    margin-right: 25px;
+  }
+
+  .form-spacer-bigger {
+    margin-right: 95px;
+  }
+
+  
+  .small-spacer {
+    margin-right: 5px;
+  }
+
+  .signin-text:hover {
+    color: #68c4af;
+  }
+
+  .signup-form {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .signup-form input[type="text"],
+  .signup-form input[type="email"],
+  .signup-form input[type="password"],
+  .signup-form input[type=""],
+  .signup-form textarea {
+    font-weight: bolder;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .signup-form textarea {
+    resize: vertical;
+  }
+
+  /*Sign up form hover effect*/
+
+  .signup-form button[type="submit"] {
+    font-family:'Raleway', sans serif;
+    width: 100%;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border: solid 4px black;
+    cursor: pointer;
+    font-size: 16px;
+    animation: bounce 0.5s infinite alternate;
+  }
+  
+  .signup-form button[type="submit"]:before,
+  .signup-form button[type="submit"]:after{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    left: 0;
+    z-index: -1;
+    transition: transform 0.2s;
+  }
+  
+  .signup-form button[type="submit"]:before{
+    opacity: .5;
+  }
+  
+  .signup-form button[type="submit"]:after{
+    transition-delay: .2s;
+  }
+  
+  .signup-form button[type="submit"]:hover{
+    color: #68c4af;
+  }
+
+  .press-button:active {
+    transform: translateY(2px); 
+  }
+
+/*Login form some classes are used from sign up form*/
+
+  .container.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: bold;
+  }
+  
+  /* Login form heading */ 
+
+  .container.login-form h1, .sign-up-heading {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+
+  .login-form input[type="text"],
+  .login-form input[type="password"] {
+    font-weight: bolder;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .forgot-pass-text {
+    color: black;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 600;
+    font-weight: bolder;
+  }
+
+  .forgot-pass-text:hover {
+    color:#68c4af;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 600;
+    font-weight: bolder;
+  }
+  
+  .sign-in-button {
+    font-family:'Raleway', sans serif;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border: solid 4px black;
+    cursor: pointer;
+    font-size: 16px;
+    animation: bounce 0.5s infinite alternate;
+  }
+
+  .sign-in-button {
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    left: 0;
+    transition: transform 0.2s;
+  }
+  
+  .sign-in-button:before{
+    opacity: .5;
+  }
+  
+  .sign-in-button:after{
+    transition-delay: .2s;
+  }
+  
+  .sign-in-button:hover{
+    color: #68c4af;
+  }
+
+  .press-button:active {
+    transform: translateY(2px); 
+  }
+  
+/* Logout out form*/
+
+
 
 .scale {
     width: 100%;
     height: auto;
 }
 
-.author {
-    color: white;
-    margin: 4px;
-    text-transform: uppercase;
-}
 
 .masthead {
     margin-top: 10px;
@@ -66,10 +409,15 @@ body {
     width: 100%;
 }
 
+/*Main image comment and review page*/
+
 .masthead-text {
-    background-color: #445261;
-    color: white;
+    font-family: 'Raleway', sans-serif;
+    background-color:#b8dbd3;
+    font-size: 15px;
+    color: black;
     position: relative;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .masthead-image {
@@ -84,11 +432,19 @@ body {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261;
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);
     z-index: 100;
+}
+
+/* ABOUT PAGE Name and profile description text*/
+
+.name-about-page {
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 600;
+    color: black;
+    padding: 15px 10px 10px 15px;
 }
 
 .post-link {
@@ -98,7 +454,7 @@ body {
 
 .post-link:hover,
 .page-link {
-    color: #E84610;
+    color: black;
 }
 
 .post-title {
@@ -106,25 +462,64 @@ body {
     margin-left: 5%;
 }
 
+/*Time updated on*/
+
 .post-subtitle {
+    font-family: 'Raleway', sans-serif;
     margin-left: 5%;
-    color: lightgray;
+    font-weight: bold;
+    color: black;
 }
+/*Box outline around profiles about page*/
+
+.box-around-profile {
+  background-color: white;
+    position: relative;
+    margin: 40px 10px 40px 10px;
+    border: 5px solid black;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-created-text {
+    font-family: 'Raleway', sans-serif;
+    margin-left: 5%;
+    font-weight: bold;
+    color: black;
+
+}
+
+
+ /* Sign up button on profile page*/
 
 .btn-signup,
-.btn-edit {
-    background-color: #188181;
-    color: #fff;
+.btn-edit, .btn-delete {
+
+    font-family:'Raleway', sans serif;
+    width: 60%;
+    font-weight: bold;
+    margin-top: 5px;
+    background-color: white;
+    color: black;
+    border: 0;
+    padding: 10px 20px;
+    border: solid 4px black;
+    cursor: pointer;
+    font-size: 13px;
+    border-radius: 0;
+    box-shadow:  2px 2px 4px rgba(0, 0, 0, 0.3);;
 }
 
-.btn-signup:hover,
+.btn-delete, .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: #23BBBB;
+    color: #68c4af;
 }
 
 .link {
-    color: #23BBBB;
+    color: orange;
     text-decoration: none;
 }
 
@@ -138,11 +533,6 @@ body {
     color: #E84610;
     border: none;
     background: transparent;
-}
-
-.btn-delete {
-    color: #fff;
-    background: #E84610;
 }
 
 .btn-like:hover,
@@ -160,13 +550,114 @@ body {
     color: rgb(222, 146, 168);
 }
 
-.github-link {
-    color: #F9FAFC;
-    text-decoration: none;
+/*footer / border around */
+
+.footer-box {
+    border: 3px solid;
+    border-color: #b8dbd3;
+    margin: 5px 10px 5px 10px;
 }
 
-.github-link .link:hover,
-.link:active {
-    color: #445261;
-    text-decoration: underline;
+.footer-inner-box {
+    border: 3px solid;
+    border-color: #f7e7b4;
+    margin: 5px 5px 5px 5px;
 }
+
+/*div within black box*/
+
+.footer-content {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+/* All elements within box*/
+
+.github-link-text {
+    color: black;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    display: inline-flex; 
+    align-items: center;
+    margin: 0 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;  
+}
+
+/*fa github icon*/
+
+.github-link i {
+    display: inline-flex; 
+    align-items: center;
+    color: black;
+    margin-right: 15px;
+}
+
+.github-link-text:hover {
+    color: #68c4af;
+}
+
+/*Media queries*/
+
+@media screen and (max-width: 550px) {
+    .hero-text {
+        margin: 20px;
+        font-family: 'Raleway', sans serif;
+        font-weight: bold;
+        color: black;
+        text-align: center;
+        font-size: 15px; 
+    }
+    
+    #hero-text {
+        font-family: 'Raleway', sans-serif;
+        font-weight: bold;
+        color: black;
+        text-align: center;
+        font-size: 40px;
+        letter-spacing: 0.02em;
+        text-shadow: -15px 5px 20px #ced0d3;
+        padding: 15px 15px 15px 15px;
+        text-shadow: 5px 5px 0px #b8dbd3, 
+        5px 5px 0px #f7e7f7, 
+        10px 10px 0px  #68c4af, 
+        15px 15px 0px #96ead7, 
+        20px 20px 0px #f2f6c3 
+    }
+
+}
+
+
+@media only screen and (max-width: 600px) {
+    .container.signup-form {
+      padding: 10px;
+    }
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    .footer-box {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+   
+  }
+
+  @media (min-width: 768px) {
+    .card-container {
+        display: flex; 
+        justify-content: space-between; 
+        flex-wrap: wrap; 
+ }
+}
+
+
+@media (max-width: 768px) {
+  .footer-content {
+     display: none;
+  }
+}
+

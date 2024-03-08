@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 
-<!-- index.html content starts here -->
+<!-- events.html content starts here -->
 <div class="container-fluid">
     <div class="row">
 
-        <!-- Blog Entries Column -->
+        <!-- Event Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for event in object_list %}
@@ -14,6 +14,13 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
+                                {% if "placeholder" in post.featured_image.url %}
+                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                                  alt="placeholder image">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ event.featured_image.url }}"
+                                  alt="{{ event.title }}">
+                                {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Author: {{ event.author }}</p>
                                 </div>
@@ -47,5 +54,5 @@
     {% endif %}
 </div>
 
-<!-- index.html content ends here -->
+<!-- articles.html content ends here -->
 {% endblock content%}
